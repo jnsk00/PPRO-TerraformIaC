@@ -53,13 +53,15 @@ Přejděte do adresáře `terraform` a inicializujte pracovní prostor. Tím se 
 ```bash
 cd terraform
 terraform init
+```
 
 2. Plánování změn (Dry Run)
 
 Terraform ukáže, co přesně se chystá vytvořit, aniž by provedl jakékoli změny. Zde demonstrujeme princip deklarativní definice.
 
+```bash
 terraform plan
-
+```
 3. Aplikace konfigurace (Nasazení)
 
 Tento krok provede kompletní nasazení:
@@ -67,8 +69,9 @@ Tento krok provede kompletní nasazení:
 2. Vytvoří Kubernetes Deployment s 2 replikami.
 3. Vytvoří Kubernetes Service typu NodePort.
 
+```bash
 terraform apply
-
+```
 Po výzvě zadejte yes.
 
 4. Ověření a přístup
@@ -76,16 +79,21 @@ Po výzvě zadejte yes.
 Po úspěšném nasazení získáte z výstupu outputs.tf port, na kterém aplikace běží.
 
 Pro Minikube:
+```bash
 minikube service spring-app-demo
-
+```
 Obecně: Aplikace je dostupná na adrese http://<IP_adresa_clusteru>:<NodePort>.
 
 5. Úklid
 
 Demonstrujte idempotentnost a snadný úklid infrastruktury.
+```bash
 terraform destroy
+```
 
 🌐 CI/CD Integrace (GitHub Actions )
 
 V souboru .github/workflows/terraform-ci.yml je definována pipeline, která se spouští při každé změně kódu.
 Demonstrované principy CI/CD:
+Validace: Kontrola syntaxe a správnosti Terraform kódu (terraform validate).
+Plánování: Vytvoření náhledu změn (terraform plan), který slouží pro revizi kódu a schválení nasazení.

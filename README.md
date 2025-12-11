@@ -50,9 +50,9 @@ Tato část slouží k praktické ukázce nasazení aplikace pomocí Terraformu.
 
 ### Předpoklady
 
-* nainstalovaný a spuštěný **Docker**
+* nainstalovaný a spuštěný **Docker** (Pokud nemáte, tak hlavní stránky Dockeru https://www.docker.com/)
 * lokální **Kubernetes cluster** (Minikube nebo Docker Desktop)
-* nainstalované **Terraform CLI**
+* nainstalované **Terraform CLI** (https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 ---
 
@@ -61,7 +61,6 @@ Tato část slouží k praktické ukázce nasazení aplikace pomocí Terraformu.
 V adresáři `terraform` spusťte inicializaci, která stáhne a připraví potřebné providery:
 
 ```bash
-cd terraform
 terraform init
 ```
 
@@ -108,7 +107,7 @@ minikube service spring-app-demo
 Obecně je aplikace dostupná na:
 
 ```
-http://<IP_adresa_clusteru>:<NodePort>
+http://<localhost>:<NodePort>
 ```
 
 ---

@@ -39,7 +39,7 @@ resource "kubernetes_deployment" "spring_app" {
         container {
           image = docker_image.spring_app.name
           name  = var.app_name
-          ports {
+          port {
             container_port = var.app_port
           }
           

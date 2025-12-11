@@ -5,7 +5,7 @@ COPY . .
 RUN gradle clean build -x test
 
 # Stage 2: Create the final image
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 # Copy the built JAR file from the build stage
 COPY --from=build /app/build/libs/*.jar app.jar

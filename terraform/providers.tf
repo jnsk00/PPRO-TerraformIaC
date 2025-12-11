@@ -15,4 +15,12 @@ terraform {
 
 provider "docker" {}
 
-provider "kubernetes" {}
+provider "kubernetes" {
+  # Windows cesta k kubeconfigu (Terraform si ~ přeloží na C:\Users\TvojeJmeno\...)
+  config_path    = pathexpand("~/.kube/config")
+
+  # přesně ten context, co ti vypsalo:
+  # CURRENT   NAME             CLUSTER          AUTHINFO         NAMESPACE
+  # *         docker-desktop   docker-desktop   docker-desktop
+  config_context = "docker-desktop"
+}
